@@ -10,13 +10,9 @@
     "lint:fix": "eslint . --fix",
     "preview": "vite preview",
     "seed": "node scripts/seed-firestore.mjs",
-    "migrate-assets": "node scripts/migrate-assets.mjs",
-    "android:sync": "vite build && cap sync android",
-    "android:aab": "npm run android:sync && cd android && ./gradlew bundleRelease"
+    "migrate-assets": "node scripts/migrate-assets.mjs"
   },
   "dependencies": {
-    "@capacitor/android": "^7.6.10",
-    "@capacitor/core": "^7.6.10",
     "@hello-pangea/dnd": "^17.0.0",
     "@hookform/resolvers": "^4.1.2",
     "@radix-ui/react-accordion": "^1.2.3",
@@ -84,7 +80,6 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@capacitor/cli": "^7.6.10",
     "@eslint/js": "^9.19.0",
     "@types/node": "^22.13.5",
     "@types/react": "^18.2.66",

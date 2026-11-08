@@ -18,6 +18,13 @@ jobs:
       - uses: actions/setup-java@v4
         with: { distribution: temurin, java-version: 17 }
       - run: npm install --no-audit --no-fund
+      - name: Add Android (Capacitor) project
+        run: |
+          npm install --no-save --no-audit --no-fund @capacitor/core@7 @capacitor/cli@7 @capacitor/android@7
+          npx vite build
+          cp android-build/capacitor.config.json capacitor.config.json
+          npx cap add android
+          node android-build/patch-signing.mjs
       - name: Restore signing key
         env:
           KEYSTORE_B64: ${{ secrets.KEYSTORE_B64 }}
@@ -25,7 +32,8 @@ jobs:
         run: |
           echo "$KEYSTORE_B64" | base64 -d > android/dar-upload.jks
           printf 'storeFile=dar-upload.jks\nstorePassword=%s\nkeyAlias=dar-upload\nkeyPassword=%s\n' "$KEYSTORE_PASSWORD" "$KEYSTORE_PASSWORD" > android/keystore.properties
-      - run: npm run android:aab
+      - run: npx cap sync android
+      - run: cd android && ./gradlew bundleRelease --no-daemon
       - uses: actions/upload-artifact@v4
         with:
           name: dar-al-uloom-aab

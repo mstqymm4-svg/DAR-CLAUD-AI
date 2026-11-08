@@ -1,0 +1,1 @@
+import{lt as e}from"./index-c3IE5V4Y.js";import{t}from"./jsx-runtime-CkcEAIm1.js";var n=t();function r({title:t,onBack:r}){return e(),(0,n.jsx)(`div`,{className:`md:hidden safe-area-top -mt-2 mb-2`})}export{r as t};

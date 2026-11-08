@@ -1,6 +1,6 @@
 {
-  "name": "Dar Base44 AI Android",
-  "description": "AI-powered mobile assistant and development platform with Gemini integration.",
+  "name": "Dar Al-Uloom",
+  "description": "Arabic Islamic digital library: books, PDF reader, videos, favorites, admin panel.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }
