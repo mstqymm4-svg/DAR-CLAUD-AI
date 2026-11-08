@@ -61,7 +61,7 @@ function devOtpPlugin() {
 
 export default defineConfig({
   plugins: [devOtpPlugin(), react({ include: /\.(jsx|js|tsx|ts)$/ })],
-  resolve: { alias: { '@': path.resolve(__dirname, 'src') } },
+  resolve: { alias: { '@': path.resolve(import.meta.dirname, 'src') } },
   // AI Studio disables HMR via DISABLE_HMR to avoid flicker during agent edits.
   server: {
     port: 3000,
@@ -69,5 +69,4 @@ export default defineConfig({
     hmr: process.env.DISABLE_HMR !== 'true',
     watch: process.env.DISABLE_HMR === 'true' ? null : {},
   },
-  esbuild: { loader: 'jsx', include: /src\/.*\.jsx?$/, exclude: [] },
 });

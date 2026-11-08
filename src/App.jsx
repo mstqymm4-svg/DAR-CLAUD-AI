@@ -28,6 +28,10 @@ try {
 } catch (e) {}
 
 // Lazy-load pages for faster initial load
+const Login = lazy(() => import('./pages/Login'));
+const Register = lazy(() => import('./pages/Register'));
+const ForgotPassword = lazy(() => import('./pages/ForgotPassword'));
+const ResetPassword = lazy(() => import('./pages/ResetPassword'));
 const Home = lazy(() => import('./pages/Home'));
 const Books = lazy(() => import('./pages/Books'));
 const BookDetails = lazy(() => import('./pages/BookDetails'));
@@ -131,6 +135,10 @@ const AuthenticatedApp = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/verify-email" element={<VerifyEmail />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/splash-preview" element={<SplashPreview />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>
