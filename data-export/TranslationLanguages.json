@@ -1,0 +1,58 @@
+[
+  {
+    "name": "الأردية",
+    "active": true,
+    "code": "ur",
+    "rtl": true,
+    "font_family": "var(--font-nastaliq)",
+    "native_name": "اردو",
+    "id": "6a46518d22dadb3108fff1ff",
+    "created_date": "2026-07-02T11:54:53.171000",
+    "updated_date": "2026-07-02T11:54:53.171000",
+    "created_by_id": "69c8e483a69a0d215eee4ef8",
+    "created_by": "mstqymm4@gmail.com",
+    "is_sample": false
+  },
+  {
+    "name": "الإنجليزية",
+    "active": true,
+    "code": "en",
+    "rtl": false,
+    "font_family": "var(--font-inter)",
+    "native_name": "English",
+    "id": "6a44aa9a087d8550d717917a",
+    "created_date": "2026-07-01T05:50:18.481000",
+    "updated_date": "2026-07-01T05:50:18.481000",
+    "created_by_id": "69c8e483a69a0d215eee4ef8",
+    "created_by": "mstqymm4@gmail.com",
+    "is_sample": false
+  },
+  {
+    "name": "الهندية",
+    "active": true,
+    "code": "hi",
+    "rtl": false,
+    "font_family": "var(--font-devanagari)",
+    "native_name": "हिन्दी",
+    "id": "6a44aa9a087d8550d7179179",
+    "created_date": "2026-07-01T05:50:18.481000",
+    "updated_date": "2026-07-01T05:50:18.481000",
+    "created_by_id": "69c8e483a69a0d215eee4ef8",
+    "created_by": "mstqymm4@gmail.com",
+    "is_sample": false
+  },
+  {
+    "name": "العربية",
+    "active": true,
+    "code": "ar",
+    "rtl": true,
+    "font_family": "",
+    "native_name": "العربية",
+    "id": "6a44aa9a087d8550d7179177",
+    "created_date": "2026-07-01T05:50:18.481000",
+    "updated_date": "2026-07-01T05:50:18.481000",
+    "created_by_id": "69c8e483a69a0d215eee4ef8",
+    "created_by": "mstqymm4@gmail.com",
+    "is_sample": false
+  }
+]

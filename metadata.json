@@ -1,0 +1,6 @@
+{
+  "name": "Dar Base44 AI Android",
+  "description": "AI-powered mobile assistant and development platform with Gemini integration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,42 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() { return request.auth != null; }
+    function isAdmin() {
+      return signedIn() && (
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin'
+        // Bootstrap: put your own email here so the first admin can promote others.
+        || request.auth.token.email == 'REPLACE_WITH_ADMIN_EMAIL'
+      );
+    }
+    function owns() { return signedIn() && resource.data.created_by_id == request.auth.uid; }
+
+    // Public, admin-managed content (was RLS: read = anyone, write = admin)
+    match /{coll}/{id} {
+      allow read: if coll in ['Book','Video','VideoChannel','SocialChannel','AppSettings',
+                              'TranslationLanguage','TranslationGlossary','BookTranslation'];
+      allow create, update, delete: if isAdmin() && coll in ['Book','Video','VideoChannel','SocialChannel','AppSettings',
+                              'TranslationLanguage','TranslationGlossary','BookTranslation','Translation'];
+      allow read: if isAdmin() && coll == 'Translation';
+    }
+
+    // Per-user records (was RLS: created_by_id == user.id)
+    match /{coll}/{id} {
+      allow read, update, delete: if (coll in ['Favorite','AccountData']) && owns();
+      allow create: if (coll in ['Favorite','AccountData']) && signedIn()
+                    && request.resource.data.created_by_id == request.auth.uid;
+    }
+
+    match /users/{uid} {
+      allow read: if signedIn() && (request.auth.uid == uid || isAdmin());
+      allow create: if signedIn() && request.auth.uid == uid && request.resource.data.role == 'user';
+      allow update: if signedIn() && ((request.auth.uid == uid
+                         && request.resource.data.role == resource.data.role) || isAdmin());
+      allow delete: if isAdmin() || (signedIn() && request.auth.uid == uid);
+    }
+
+    match /ContactMessages/{id} { allow create: if true; allow read, delete: if isAdmin(); }
+    match /Invitations/{id}     { allow create, read, delete: if isAdmin(); }
+  }
+}

@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@300;400;500;700&family=Noto+Nastaliq+Urdu:wght@400;700&family=Abril+Fatface:wght@400&family=Titan+One:wght@400&family=Space+Grotesk:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&family=Rubik+Mono+One:wght@400&family=Albert+Sans:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&family=Urbanist:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500;600;700&family=Barlow:wght@300;400;500;600;700&family=Spectral:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500;600;700&family=Passion+One:wght@400;700&family=Lobster:wght@400&family=Satisfy:wght@400&family=Cardo:wght@400;700&family=Fascinate+Inline:wght@400&family=Great+Vibes:wght@400&family=Josefin+Sans:wght@300;400;500;600;700&family=Pacifico:wght@400&family=Patrick+Hand:wght@400&family=Permanent+Marker:wght@400&family=Playfair+Display:wght@400;500;600;700&family=PT+Serif:wght@400;700&family=Work+Sans:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:wght@400&family=DM+Serif+Text:wght@400&family=EB+Garamond:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-tajawal: 'Tajawal', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+    --font-devanagari: 'Noto Sans Devanagari', sans-serif;
+    --font-nastaliq: 'Noto Nastaliq Urdu', serif;
+    --font-heading: var(--font-tajawal);
+    --font-title: var(--font-tajawal);
+    --font-nav: var(--font-tajawal);
+    --font-button: var(--font-tajawal);
+    --background: 42 34% 96%;
+    --foreground: 165 32% 12%;
+    --card: 40 40% 99.5%;
+    --card-foreground: 160 30% 10%;
+    --popover: 40 25% 99%;
+    --popover-foreground: 160 30% 10%;
+    --primary: 158 45% 28%;
+    --primary-foreground: 40 30% 97%;
+    --secondary: 40 40% 92%;
+    --secondary-foreground: 160 30% 15%;
+    --muted: 40 24% 94%;
+    --muted-foreground: 160 12% 42%;
+    --accent: 41 78% 52%;
+    --accent-foreground: 160 30% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 22% 87%;
+    --input: 40 22% 87%;
+    --ring: 158 45% 28%;
+    --chart-1: 158 45% 28%;
+    --chart-2: 43 80% 55%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 40 60% 70%;
+    --chart-5: 160 30% 40%;
+    --radius: 0.75rem;
+    --sidebar-background: 40 25% 97%;
+    --sidebar-foreground: 160 30% 15%;
+    --sidebar-primary: 158 45% 28%;
+    --sidebar-primary-foreground: 40 30% 97%;
+    --sidebar-accent: 40 30% 92%;
+    --sidebar-accent-foreground: 160 30% 15%;
+    --sidebar-border: 40 20% 88%;
+    --sidebar-ring: 158 45% 28%;
+  }
+
+  .dark {
+    --background: 165 22% 8%;
+    --foreground: 40 22% 95%;
+    --card: 165 20% 11.5%;
+    --card-foreground: 40 20% 95%;
+    --popover: 160 20% 10%;
+    --popover-foreground: 40 20% 95%;
+    --primary: 158 45% 40%;
+    --primary-foreground: 40 30% 97%;
+    --secondary: 160 15% 15%;
+    --secondary-foreground: 40 20% 90%;
+    --muted: 160 15% 15%;
+    --muted-foreground: 40 10% 55%;
+    --accent: 43 80% 55%;
+    --accent-foreground: 160 30% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 160 15% 18%;
+    --input: 160 15% 18%;
+    --ring: 158 45% 40%;
+    --chart-1: 158 45% 40%;
+    --chart-2: 43 80% 55%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 160 20% 8%;
+    --sidebar-foreground: 40 20% 90%;
+    --sidebar-primary: 158 45% 40%;
+    --sidebar-primary-foreground: 40 30% 97%;
+    --sidebar-accent: 160 15% 14%;
+    --sidebar-accent-foreground: 40 20% 90%;
+    --sidebar-border: 160 15% 18%;
+    --sidebar-ring: 158 45% 40%;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  /* PDF.js text layer — selectable text overlay on canvas */
+  .text-layer-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 1;
+    line-height: 1;
+  }
+  .text-layer-container span {
+    color: transparent;
+    position: absolute;
+    white-space: pre;
+    cursor: text;
+    transform-origin: 0% 0%;
+  }
+  .text-layer-container ::selection {
+    background: hsl(var(--primary) / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  /* ── Ensure dark mode covers ALL elements universally ── */
+  .dark body,
+  .dark #root,
+  .dark .min-h-screen {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  .dark .bg-white {
+    background-color: hsl(var(--card)) !important;
+    color: hsl(var(--card-foreground)) !important;
+  }
+
+  .dark .text-black,
+  .dark .text-gray-900,
+  .dark .text-gray-800 {
+    color: hsl(var(--foreground)) !important;
+  }
+
+  .dark .bg-gray-50,
+  .dark .bg-gray-100 {
+    background-color: hsl(var(--muted)) !important;
+  }
+
+  .dark .border-gray-200,
+  .dark .border-gray-100 {
+    border-color: hsl(var(--border)) !important;
+  }
+
+  html[dir="rtl"] body {
+    direction: rtl;
+    text-align: right;
+  }
+
+  html[dir="ltr"] body {
+    direction: ltr;
+    text-align: left;
+  }
+
+  /* BiDi isolation for mixed-language content */
+  [data-bidi] {
+    unicode-bidi: isolate;
+  }
+
+  /* ── RTL-safe control rows ──
+     Ensure toggles/switches/action buttons never overflow their card and
+     keep consistent spacing from the text, regardless of direction. */
+  [dir="rtl"] .setting-row,
+  [dir="rtl"] [data-setting-row] {
+    direction: rtl;
+  }
+
+  body {
+    @apply bg-background text-foreground font-tajawal;
+    font-family: var(--font-app, var(--font-tajawal));
+    unicode-bidi: plaintext;
+    overscroll-behavior: none;
+  }
+
+  /* Urdu Nastaliq needs extra line-height for content readability, but the
+     previous blanket `*` rule broke compact UI chrome (bottom nav, badges,
+     buttons). Scope the larger line-height to main content only; the Nastaliq
+     font itself is applied via --font-app on <body> by the theme engine. */
+  [lang="ur"] main {
+    line-height: 2;
+  }
+
+  h1, h2 {
+    font-family: var(--font-heading);
+  }
+
+  h3, h4, h5, h6 {
+    font-family: var(--font-title, var(--font-heading));
+  }
+
+  button {
+    font-family: var(--font-button);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  a[class*="nav"], nav a, nav button {
+    font-family: var(--font-nav);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  a {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  /* ── Global UI polish: typography scale ── */
+  h1 {
+    @apply text-[1.6rem] sm:text-3xl font-extrabold tracking-tight leading-tight;
+  }
+  h2 {
+    @apply text-xl sm:text-2xl font-bold tracking-tight leading-snug;
+  }
+  h3 {
+    @apply text-[0.98rem] sm:text-lg font-semibold leading-snug;
+  }
+  h4, h5, h6 {
+    @apply text-sm font-semibold leading-snug;
+  }
+  p {
+    @apply leading-relaxed text-[0.94rem] sm:text-base;
+  }
+
+  /* ── Global UI polish: page rhythm ── */
+  main > * + * {
+    margin-block-start: 1.5rem;
+  }
+
+  /* Section headers get a touch more breathing room */
+  main h2 + p,
+  main h1 + p {
+    margin-block-start: 0.25rem;
+    @apply text-muted-foreground;
+  }
+
+  /* Inputs & buttons: consistent, comfortable touch targets */
+  main input:not([type="range"]):not([type="checkbox"]):not([type="radio"]),
+  main textarea,
+  main select {
+    @apply rounded-xl;
+    min-height: 2.75rem;
+  }
+  main button:not([class*="rounded-"]) {
+    /* Signature asymmetric corners — matches the hero banner CTA */
+    border-radius: 4px 20px 4px 20px;
+  }
+  button, a {
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  }
+  main button:active {
+    transform: scale(0.97);
+  }
+
+  /* ── Global UI polish: unified card surfaces ── */
+  main .bg-card,
+  main [class*="rounded-2xl"].bg-card,
+  main [class*="rounded-xl"].bg-card {
+    box-shadow: 0 1px 2px hsl(var(--foreground) / 0.04), 0 6px 20px -12px hsl(var(--foreground) / 0.12);
+    transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+  }
+
+  @media (hover: hover) {
+    main a .bg-card:hover,
+    main .bg-card:hover {
+      box-shadow: 0 2px 4px hsl(var(--foreground) / 0.06), 0 16px 32px -16px hsl(var(--primary) / 0.28);
+      border-color: hsl(var(--primary) / 0.35);
+      transform: translateY(-3px);
+    }
+  }
+
+  /* Softer, warmer separators for a calmer layout */
+  main hr {
+    border-color: hsl(var(--border) / 0.7);
+  }
+}
+
+.gsi-material-button {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-appearance: none;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #747775;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #1f1f1f;
+  cursor: pointer;
+  font-family: 'Roboto', 'Inter', 'Tajawal', arial, sans-serif;
+  font-size: 14px;
+  height: 40px;
+  letter-spacing: 0.25px;
+  outline: none;
+  overflow: hidden;
+  padding: 0 16px;
+  position: relative;
+  text-align: center;
+  -webkit-transition: background-color .218s, border-color .218s, box-shadow .218s;
+  transition: background-color .218s, border-color .218s, box-shadow .218s;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: auto;
+  max-width: 400px;
+  min-width: min-content;
+  direction: ltr;
+}
+
+.dark .gsi-material-button {
+  background-color: #131314;
+  border-color: #8e918f;
+  color: #e3e3e3;
+}
+
+.gsi-material-button .gsi-material-button-icon {
+  height: 20px;
+  margin-right: 10px;
+  min-width: 20px;
+  width: 20px;
+}
+
+.gsi-material-button .gsi-material-button-content-wrapper {
+  -webkit-align-items: center;
+  align-items: center;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  height: 100%;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.gsi-material-button .gsi-material-button-contents {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+
+.gsi-material-button .gsi-material-button-state {
+  -webkit-transition: opacity .218s;
+  transition: opacity .218s;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.gsi-material-button:disabled {
+  cursor: default;
+  background-color: #ffffff61;
+  border-color: #1f1f1f1f;
+}
+
+.gsi-material-button:disabled .gsi-material-button-contents,
+.gsi-material-button:disabled .gsi-material-button-icon {
+  opacity: 38%;
+}
+
+.gsi-material-button:not(:disabled):hover {
+  -webkit-box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+}
+
+.gsi-material-button:not(:disabled):hover .gsi-material-button-state {
+  background-color: #303030;
+  opacity: 8%;
+}

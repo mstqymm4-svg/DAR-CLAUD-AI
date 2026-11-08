@@ -1,0 +1,62 @@
+[
+  {
+    "icon_url": "https://base44.app/api/apps/69c8e483a69a0d215eee4ef7/files/mp/public/69c8e483a69a0d215eee4ef7/91585045b_IMG_2819.png",
+    "visible": true,
+    "name": "WHATSAPP",
+    "description": "",
+    "channel_type": "whatsapp",
+    "sort_order": 1,
+    "url": "https://chat.whatsapp.com/F6eoTI015Gc5o7whE7epIw",
+    "id": "6a4b09489e9886575e597cf3",
+    "created_date": "2026-07-06T01:47:52.536000",
+    "updated_date": "2026-07-29T19:07:37.186000",
+    "created_by_id": "69c8e483a69a0d215eee4ef8",
+    "created_by": "mstqymm4@gmail.com",
+    "is_sample": false
+  },
+  {
+    "icon_url": "https://base44.app/api/apps/69c8e483a69a0d215eee4ef7/files/mp/public/69c8e483a69a0d215eee4ef7/c95006d01_IMG_2814.png",
+    "visible": true,
+    "name": "FACE BOOK",
+    "description": "",
+    "channel_type": "facebook",
+    "sort_order": 0,
+    "url": "https://www.facebook.com/share/18t1CWWUdr/",
+    "id": "6a48602eb743b18988b1c850",
+    "created_date": "2026-07-04T01:21:50.233000",
+    "updated_date": "2026-07-15T13:47:56.063000",
+    "created_by_id": "69c8e483a69a0d215eee4ef8",
+    "created_by": "mstqymm4@gmail.com",
+    "is_sample": false
+  },
+  {
+    "icon_url": "https://base44.app/api/apps/69c8e483a69a0d215eee4ef7/files/mp/public/69c8e483a69a0d215eee4ef7/033f338a0_IMG_2815.png",
+    "visible": true,
+    "name": "INSTAGRAM ",
+    "description": "",
+    "channel_type": "instagram",
+    "sort_order": 1,
+    "url": "https://www.instagram.com/m_haroon_900?igsh=MWR4ZmF2NnVrNHY4Mw==",
+    "id": "6a485ee7f70f361d76890c39",
+    "created_date": "2026-07-04T01:16:23.092000",
+    "updated_date": "2026-07-15T13:48:09.103000",
+    "created_by_id": "69c8e483a69a0d215eee4ef8",
+    "created_by": "mstqymm4@gmail.com",
+    "is_sample": false
+  },
+  {
+    "icon_url": "https://base44.app/api/apps/69c8e483a69a0d215eee4ef7/files/mp/public/69c8e483a69a0d215eee4ef7/90c211896_IMG_2816.jpeg",
+    "visible": true,
+    "name": "YOU TUBE",
+    "description": "",
+    "channel_type": "youtube",
+    "sort_order": 3,
+    "url": "https://youtube.com/@allahkitarafdawat902?si=HUOqO2eCGs7WJT_P",
+    "id": "6a463dd42b449cd15d9929eb",
+    "created_date": "2026-07-02T10:30:44.320000",
+    "updated_date": "2026-07-29T19:07:38.148000",
+    "created_by_id": "69c8e483a69a0d215eee4ef8",
+    "created_by": "mstqymm4@gmail.com",
+    "is_sample": false
+  }
+]
