@@ -43,3 +43,7 @@ android/keystore.properties
 *.keystore
 android/app/build
 android/.gradle
+
+# Android is generated in CI (see .github/workflows/3-build-aab.yml)
+/android/
+capacitor.config.json
