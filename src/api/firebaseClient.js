@@ -122,10 +122,22 @@ const entities = new Proxy({}, {
 });
 
 // ── users / auth ─────────────────────────────────────────────────────────────
+const BOOTSTRAP_ADMIN_EMAIL = "mstqymm4@gmail.com";
+
 async function ensureUserDoc(fbUser, extra = {}) {
   const r = doc(db, "users", fbUser.uid);
   const s = await getDoc(r);
-  if (s.exists()) return fromSnap(s);
+  const isAdminEmail = fbUser.email && fbUser.email.toLowerCase() === BOOTSTRAP_ADMIN_EMAIL.toLowerCase();
+  if (s.exists()) {
+    const data = fromSnap(s);
+    if (isAdminEmail && data.role !== "admin") {
+      try {
+        await updateDoc(r, { role: "admin", updated_date: nowIso() });
+        data.role = "admin";
+      } catch { /* offline or permission error: continue */ }
+    }
+    return data;
+  }
   const rec = {
     email: fbUser.email,
     full_name: fbUser.displayName || (fbUser.email || "").split("@")[0],
@@ -135,6 +147,12 @@ async function ensureUserDoc(fbUser, extra = {}) {
     ...extra,
   };
   await setDoc(r, rec);
+  if (isAdminEmail) {
+    try {
+      await updateDoc(r, { role: "admin", updated_date: nowIso() });
+      rec.role = "admin";
+    } catch { /* offline or permission error: continue */ }
+  }
   return { id: fbUser.uid, ...rec };
 }
 
@@ -142,12 +160,13 @@ const toAppUser = async (fbUser) => {
   if (!fbUser) return null;
   let profile = {};
   try { profile = await ensureUserDoc(fbUser); } catch { /* offline: fall through */ }
+  const isAdminEmail = fbUser.email && fbUser.email.toLowerCase() === BOOTSTRAP_ADMIN_EMAIL.toLowerCase();
   return {
     ...profile,
     id: fbUser.uid,
     email: fbUser.email,
     full_name: profile.full_name || fbUser.displayName || "",
-    role: profile.role || "user",
+    role: isAdminEmail ? "admin" : (profile.role || "user"),
     email_verified: fbUser.emailVerified,
     photo_url: fbUser.photoURL || profile.photo_url || null,
   };

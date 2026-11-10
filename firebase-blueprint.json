@@ -1,0 +1,157 @@
+{
+  "entities": {
+    "Book": {
+      "title": "Book",
+      "description": "Islamic book entity with metadata, PDF URL, cover image, and author information.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "author": { "type": "string" },
+        "category": { "type": "string" },
+        "description": { "type": "string" },
+        "cover_url": { "type": "string" },
+        "pdf_url": { "type": "string" }
+      }
+    },
+    "Video": {
+      "title": "Video",
+      "description": "Islamic video or lesson entity.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "youtube_url": { "type": "string" },
+        "channel_id": { "type": "string" },
+        "category": { "type": "string" }
+      }
+    },
+    "VideoChannel": {
+      "title": "VideoChannel",
+      "description": "Video channels featured in the library.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "channel_url": { "type": "string" },
+        "thumbnail": { "type": "string" }
+      }
+    },
+    "SocialChannel": {
+      "title": "SocialChannel",
+      "description": "Official social media channels.",
+      "type": "object",
+      "properties": {
+        "platform": { "type": "string" },
+        "url": { "type": "string" },
+        "title": { "type": "string" }
+      }
+    },
+    "AppSettings": {
+      "title": "AppSettings",
+      "description": "Site-wide and application configuration settings.",
+      "type": "object",
+      "properties": {
+        "key": { "type": "string" },
+        "value": { "type": "string" }
+      }
+    },
+    "TranslationLanguage": {
+      "title": "TranslationLanguage",
+      "description": "Supported languages for translations.",
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+    "TranslationGlossary": {
+      "title": "TranslationGlossary",
+      "description": "Islamic terms glossary translations.",
+      "type": "object",
+      "properties": {
+        "term": { "type": "string" },
+        "translation": { "type": "string" }
+      }
+    },
+    "BookTranslation": {
+      "title": "BookTranslation",
+      "description": "Translations for book content.",
+      "type": "object",
+      "properties": {
+        "book_id": { "type": "string" },
+        "language": { "type": "string" }
+      }
+    },
+    "Translation": {
+      "title": "Translation",
+      "description": "General text translations.",
+      "type": "object",
+      "properties": {
+        "key": { "type": "string" },
+        "text": { "type": "string" }
+      }
+    },
+    "Favorite": {
+      "title": "Favorite",
+      "description": "User book and video favorites.",
+      "type": "object",
+      "properties": {
+        "item_id": { "type": "string" },
+        "item_type": { "type": "string" },
+        "created_by_id": { "type": "string" }
+      }
+    },
+    "AccountData": {
+      "title": "AccountData",
+      "description": "Per-user preferences, bookmarks, and reading history.",
+      "type": "object",
+      "properties": {
+        "user_id": { "type": "string" },
+        "created_by_id": { "type": "string" }
+      }
+    },
+    "User": {
+      "title": "User",
+      "description": "User profile with role and preferences.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "role": { "type": "string" },
+        "display_name": { "type": "string" }
+      }
+    },
+    "ContactMessage": {
+      "title": "ContactMessage",
+      "description": "Contact messages submitted by users.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "message": { "type": "string" }
+      }
+    },
+    "Invitation": {
+      "title": "Invitation",
+      "description": "Admin invitation records.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "role": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/Book/{id}": { "schema": "Book", "description": "Islamic books collection" },
+    "/Video/{id}": { "schema": "Video", "description": "Videos collection" },
+    "/VideoChannel/{id}": { "schema": "VideoChannel", "description": "Video channels collection" },
+    "/SocialChannel/{id}": { "schema": "SocialChannel", "description": "Social links collection" },
+    "/AppSettings/{id}": { "schema": "AppSettings", "description": "Application settings" },
+    "/TranslationLanguage/{id}": { "schema": "TranslationLanguage", "description": "Translation languages" },
+    "/TranslationGlossary/{id}": { "schema": "TranslationGlossary", "description": "Translation glossary" },
+    "/BookTranslation/{id}": { "schema": "BookTranslation", "description": "Book translations" },
+    "/Translation/{id}": { "schema": "Translation", "description": "General translations" },
+    "/Favorite/{id}": { "schema": "Favorite", "description": "User favorites" },
+    "/AccountData/{id}": { "schema": "AccountData", "description": "User private app data" },
+    "/users/{uid}": { "schema": "User", "description": "User accounts and roles" },
+    "/ContactMessages/{id}": { "schema": "ContactMessage", "description": "Inbound user contact requests" },
+    "/Invitations/{id}": { "schema": "Invitation", "description": "Admin invitations" }
+  }
+}
