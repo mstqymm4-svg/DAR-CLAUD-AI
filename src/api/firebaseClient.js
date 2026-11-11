@@ -127,7 +127,7 @@ const BOOTSTRAP_ADMIN_EMAIL = "mstqymm4@gmail.com";
 async function ensureUserDoc(fbUser, extra = {}) {
   const r = doc(db, "users", fbUser.uid);
   const s = await getDoc(r);
-  const isAdminEmail = fbUser.email && fbUser.email.toLowerCase() === BOOTSTRAP_ADMIN_EMAIL.toLowerCase();
+  const isAdminEmail = !!fbUser.emailVerified && !!fbUser.email && fbUser.email.toLowerCase() === BOOTSTRAP_ADMIN_EMAIL.toLowerCase();
   if (s.exists()) {
     const data = fromSnap(s);
     if (isAdminEmail && data.role !== "admin") {
@@ -160,7 +160,7 @@ const toAppUser = async (fbUser) => {
   if (!fbUser) return null;
   let profile = {};
   try { profile = await ensureUserDoc(fbUser); } catch { /* offline: fall through */ }
-  const isAdminEmail = fbUser.email && fbUser.email.toLowerCase() === BOOTSTRAP_ADMIN_EMAIL.toLowerCase();
+  const isAdminEmail = !!fbUser.emailVerified && !!fbUser.email && fbUser.email.toLowerCase() === BOOTSTRAP_ADMIN_EMAIL.toLowerCase();
   return {
     ...profile,
     id: fbUser.uid,

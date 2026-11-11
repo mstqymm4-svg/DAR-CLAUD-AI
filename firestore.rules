@@ -7,7 +7,8 @@ service cloud.firestore {
       return signedIn() && (
         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin'
         // Bootstrap: put your own email here so the first admin can promote others.
-        || request.auth.token.email == 'mstqymm4@gmail.com'
+        // Only a VERIFIED e-mail counts, otherwise anyone could sign up with this address.
+        || (request.auth.token.email == 'mstqymm4@gmail.com' && request.auth.token.email_verified == true)
       );
     }
     function owns() { return signedIn() && resource.data.created_by_id == request.auth.uid; }
