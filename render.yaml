@@ -1,0 +1,19 @@
+# Render "Blueprint": deploys the OTP server from the /server folder.
+services:
+  - type: web
+    name: dar-otp-server
+    runtime: node
+    rootDir: server
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: GMAIL_USER
+        value: daraluloom258@gmail.com
+      - key: GMAIL_APP_PASSWORD
+        sync: false        # you type this in the Render dashboard
+      - key: OTP_SECRET
+        generateValue: true
+      - key: ALLOWED_ORIGINS
+        sync: false        # your app's web address(es), comma separated

@@ -16,7 +16,7 @@ export default function Contact() {
   const [message, setMessage] = useState("");
   const [sending, setSending] = useState(false);
 
-  const contactEmail = getSetting("contact_email") || "mstqymm4@gmail.com";
+  const contactEmail = getSetting("contact_email") || "daraluloom258@gmail.com";
   const whatsappUrl = getSetting("whatsapp_url") || "";
   const contactPhone = getSetting("contact_phone") || "";
   const contactAddress = getSetting("contact_address") || "";
